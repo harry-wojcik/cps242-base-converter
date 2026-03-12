@@ -51,13 +51,20 @@ string DecimalToHex(string d) {
     return "0x" + h;
 }
 
-string HexToBinary(string h) {
-    return "";
-}
 
 string HexToDecimal(string h) {
-    return "";
+    int d = 0;
+    for(int i = 0; i < h.length(); i++){
+        int hexit = h.length() - 1 - i;
+        d += HEX_CHARS.find(h.at(i)) * pow(16,hexit);
+    }
+    return to_string(d);
 }
+
+string HexToBinary(string h) {
+    return DecimalToBinary(HexToDecimal(h)); //I am lazy.
+}
+
 
 int main(int blech, char *args[]) {
     string arg1 = args[1];
@@ -100,7 +107,7 @@ int main(int blech, char *args[]) {
                     result = HexToDecimal(arg1);
                     break;
                 case 'h':
-                    result = arg1;
+                    result = "0x" + arg1;
                     break;
             }
             break;
