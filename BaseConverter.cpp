@@ -32,11 +32,23 @@ string BinaryToHex(string b) {
 }
 
 string DecimalToBinary(string d) {
-    return "";
+    int val = stoi(d);
+    string b = "";
+    while(val > 0){
+        b = to_string(val % 2) + b;
+        val /= 2;
+    }
+    return b;
 }
 
 string DecimalToHex(string d) {
-    return "";
+    int val = stoi(d);
+    string h = "";
+    while(val > 0){
+        h = HEX_CHARS.at(val % 16) + h;
+        val /= 16;
+    }
+    return "0x" + h;
 }
 
 string HexToBinary(string h) {
