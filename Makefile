@@ -3,5 +3,3 @@ all:
 
 run:
 	./baseconverter 
-
-try: all run
